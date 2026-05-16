@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, ChevronDown, ExternalLink, Shield, Brain, AlertTriangle, Heart } from 'lucide-react';
+import { BookOpen, ChevronDown, ExternalLink, Shield, Brain, AlertTriangle, Heart, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
@@ -189,66 +189,8 @@ const topics = [
   },
 ];
 
-function TopicCard({ topic }) {
-  const [open, setOpen] = useState(false);
-  const Icon = topic.icon;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 15 }}
-      animate={{ opacity: 1, y: 0 }}
-      className={`rounded-2xl border ${topic.border} ${topic.bg} overflow-hidden`}
-    >
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex items-center justify-between gap-4 p-5 text-left"
-      >
-        <div className="flex items-center gap-3">
-          <Icon className={`w-5 h-5 ${topic.color} shrink-0`} />
-          <span className="font-semibold text-foreground">{topic.title}</span>
-        </div>
-        <ChevronDown
-          className={`w-4 h-4 text-muted-foreground transition-transform duration-300 shrink-0 ${open ? 'rotate-180' : ''}`}
-        />
-      </button>
-
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="overflow-hidden"
-          >
-            <div className="px-5 pb-5 space-y-5">
-              {topic.content.map((section, i) => (
-                <div key={i}>
-                  <p className="font-semibold text-foreground mb-2">{section.subtitle}</p>
-                  {section.text && (
-                    <p className="text-sm text-muted-foreground leading-relaxed">{section.text}</p>
-                  )}
-                  {section.list && (
-                    <ul className="space-y-1.5 mt-2">
-                      {section.list.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm text-muted-foreground">
-                          <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${topic.color.replace('text-', 'bg-')} shrink-0`} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
-  );
-}
-
 export default function Education() {
+  const [selectedTopic, setSelectedTopic] = useState(null);
   const [showJurnal, setShowJurnal] = useState(false);
 
   return (
@@ -281,21 +223,83 @@ export default function Education() {
             Informasi penting tentang perundungan, dampak memendam perasaan, dan hubungannya dengan kesehatan fisik jangka panjang.
           </p>
 
-          {/* Topik */}
-          <div className="space-y-3 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {topics.map((topic, i) => (
               <motion.div
                 key={topic.id}
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }}
+                onClick={() => setSelectedTopic(topic)}
+                className={`cursor-pointer rounded-2xl border ${topic.border} ${topic.bg} p-6 hover:shadow-lg transition-all group`}
               >
-                <TopicCard topic={topic} />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${topic.color.replace('text-', 'bg-')}/10`}>
+                  <topic.icon className={`w-6 h-6 ${topic.color}`} />
+                </div>
+                <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{topic.title}</h3>
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {topic.content[0].text || topic.content[0].list?.[0]}
+                </p>
+                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-primary">
+                  Pelajari Selengkapnya <ChevronDown className="-rotate-90 w-3 h-3" />
+                </div>
               </motion.div>
             ))}
           </div>
 
-          {/* Referensi Jurnal */}
+          <AnimatePresence>
+            {selectedTopic && (
+              <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onClick={() => setSelectedTopic(null)}
+                  className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+                />
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                  className="relative w-full max-w-xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
+                >
+                  <div className="p-6 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10">
+                    <div className="flex items-center gap-3">
+                      <selectedTopic.icon className={`w-5 h-5 ${selectedTopic.color}`} />
+                      <h3 className="font-bold text-xl">{selectedTopic.title}</h3>
+                    </div>
+                    <button onClick={() => setSelectedTopic(null)} className="p-2 hover:bg-secondary rounded-full transition-colors">
+                      <X className="w-5 h-5" />
+                    </button>
+                  </div>
+                  <div className="p-6 overflow-y-auto space-y-6">
+                    {selectedTopic.content.map((section, i) => (
+                      <div key={i}>
+                        <h4 className="font-semibold text-foreground mb-3">{section.subtitle}</h4>
+                        {section.text && <p className="text-sm text-muted-foreground leading-relaxed">{section.text}</p>}
+                        {section.list && (
+                          <ul className="space-y-2 mt-3">
+                            {section.list.map((item, j) => (
+                              <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
+                                <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${selectedTopic.color.replace('text-', 'bg-')} shrink-0`} />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="p-6 border-t border-border bg-secondary/30">
+                    <button onClick={() => setSelectedTopic(null)} className="w-full py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 transition-opacity">
+                      Tutup Materi
+                    </button>
+                  </div>
+                </motion.div>
+              </div>
+            )}
+          </AnimatePresence>
+
           <div className="bg-card border border-border rounded-2xl overflow-hidden">
             <button
               onClick={() => setShowJurnal(!showJurnal)}

@@ -6,25 +6,19 @@
 
 @layer base {
   :root {
-    /* Telkom University Color Palette */
-    /* #B8252A → deep red (primary) */
-    /* #ED1E28 → bright red (accent) */
-    /* #555658 → dark grey */
-    /* #969597 → medium grey */
-
     --background: 0 0% 97%;
     --foreground: 220 5% 20%;
     --card: 0 0% 100%;
     --card-foreground: 220 5% 20%;
     --popover: 0 0% 100%;
     --popover-foreground: 220 5% 20%;
-    --primary: 358 65% 43%;        /* #B8252A deep red */
+    --primary: 358 65% 43%;       
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 3% 93%;       /* light grey bg */
+    --secondary: 220 3% 93%;     
     --secondary-foreground: 220 5% 20%;
     --muted: 220 3% 95%;
-    --muted-foreground: 220 2% 55%;  /* #969597 */
-    --accent: 358 85% 53%;         /* #ED1E28 bright red */
+    --muted-foreground: 220 2% 55%;  
+    --accent: 358 85% 53%;         
     --accent-foreground: 0 0% 100%;
     --destructive: 358 85% 53%;
     --destructive-foreground: 0 0% 98%;
