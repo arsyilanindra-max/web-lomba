@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Brain, ChevronRight, RotateCcw, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import Greeting from '@/components/Greeting';
+
 
 
 // Setiap pertanyaan memiliki skor berdasarkan pilihan jawaban.
@@ -135,7 +135,7 @@ export default function Quiz() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent/10 blur-3xl -translate-y-1/2 translate-x-1/3" />
-      <Greeting />
+      <Navbar />
 
       <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-20 sm:pt-28 pb-16">
         <Link

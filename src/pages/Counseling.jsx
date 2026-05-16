@@ -4,11 +4,10 @@ import { motion } from 'framer-motion';
 import { HeartHandshake, Send, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
-import Greeting from '@/components/Greeting';
 import { useUsername } from '@/lib/useUsername';
 
-// Ganti dengan alamat email asli
-const COUNSELOR_EMAIL = 'konseling.skomda@gmail.com'; // GANTI DI SINI
+
+const COUNSELOR_EMAIL = 'konseling.skomda@gmail.com';
 
 export default function Counseling() {
   const { username } = useUsername();
@@ -51,7 +50,6 @@ export default function Counseling() {
     <div className="min-h-screen bg-background relative overflow-hidden">
       <Navbar /> 
       <div className="absolute top-0 left-0 w-[28rem] h-[28rem] rounded-full bg-accent/15 blur-3xl -translate-y-1/3 -translate-x-1/3" />
-      <Greeting />
 
       <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-20 sm:pt-28 pb-16">
         <motion.div
