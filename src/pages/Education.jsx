@@ -1,12 +1,23 @@
 import Navbar from '@/components/Navbar';
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, ChevronDown, ExternalLink, Shield, Brain, AlertTriangle, Heart, X } from 'lucide-react';
+import {
+  BookOpen,
+  ChevronDown,
+  ExternalLink,
+  Shield,
+  Brain,
+  AlertTriangle,
+  Heart,
+  X,
+  MessageSquareText,
+  Users,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
-
 const JURNAL = [
+
   {
     judul: 'Bullying and Its Association with Autoimmune Disease in Adolescents',
     penulis: 'Danese, A., et al.',
@@ -82,6 +93,52 @@ const topics = [
     ],
   },
   {
+    id: 'jenis-bullying',
+    icon: Users,
+    color: 'text-fuchsia-500',
+    bg: 'bg-fuchsia-50',
+    border: 'border-fuchsia-100',
+    title: 'Jenis-Jenis Bullying',
+    content: [
+      {
+        subtitle: '1) Bullying Fisik',
+        list: [
+          'Memukul, menendang, mendorong',
+          'Mengunci atau merusak barang',
+          'Melukai secara langsung',
+        ],
+      },
+      {
+        subtitle: '2) Bullying Verbal',
+        list: [
+          'Mengejek, menghina, memberikan julukan',
+          'Mengancam atau mempermalukan di depan umum',
+          'Menghina penampilan, suku, atau kondisi pribadi',
+        ],
+      },
+      {
+        subtitle: '3) Bullying Relasional/Sosial',
+        list: [
+          'Mengucilkan dari pergaulan',
+          'Menyebarkan gosip untuk menjatuhkan',
+          'Membuat korban dijauhi atau diputus akses sosialnya',
+        ],
+      },
+      {
+        subtitle: '4) Cyberbullying',
+        list: [
+          'Menyebar konten memalukan di media sosial',
+          'Mengancam lewat chat atau komentar',
+          'Membuat akun palsu atau menyebarkan rumor online',
+        ],
+      },
+      {
+        subtitle: 'Catatan Penting',
+        text: 'Bentuk bullying bisa muncul sendiri atau bersamaan. Jika kamu mengalaminya, kamu berhak mendapat bantuan dan dukungan.',
+      },
+    ],
+  },
+  {
     id: 'memendam',
     icon: Brain,
     color: 'text-amber-500',
@@ -131,11 +188,11 @@ const topics = [
       {
         subtitle: 'Penyakit Autoimun yang Terkait Stres Kronis',
         list: [
-          'Lupus (SLE)  menyerang sendi, kulit, dan organ dalam',
+          'Lupus (SLE) menyerang sendi, kulit, dan organ dalam',
           'Rheumatoid Arthritis - peradangan sendi yang menyakitkan',
           'Psoriasis - gangguan kulit akibat respons imun berlebihan',
           'Penyakit Celiac - reaksi imun terhadap gluten',
-          'Hashimoto\'s Thyroiditis - gangguan tiroid akibat autoimun',
+          "Hashimoto's Thyroiditis - gangguan tiroid akibat autoimun",
           'Irritable Bowel Syndrome (IBS) terkait stres',
         ],
       },
@@ -225,25 +282,38 @@ export default function Education() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
             {topics.map((topic, i) => (
-              <motion.div
+              <motion.button
                 key={topic.id}
+                type="button"
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.08 }}
+                transition={{ delay: i * 0.06 }}
                 onClick={() => setSelectedTopic(topic)}
-                className={`cursor-pointer rounded-2xl border ${topic.border} ${topic.bg} p-6 hover:shadow-lg transition-all group`}
+                className={`text-left cursor-pointer rounded-2xl border ${topic.border} ${topic.bg} p-6 hover:shadow-lg transition-all group outline-none focus-visible:ring-2 focus-visible:ring-primary/30`}
               >
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 ${topic.color.replace('text-', 'bg-')}/10`}>
-                  <topic.icon className={`w-6 h-6 ${topic.color}`} />
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex items-start gap-3">
+                    <div
+                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${topic.color.replace('text-', 'bg-')}/10`}
+                    >
+                      <topic.icon className={`w-6 h-6 ${topic.color}`} />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">
+                        {topic.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground line-clamp-2">
+                        {topic.content[0].text || topic.content[0].list?.[0]}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-1 flex items-center gap-1 text-xs font-semibold text-primary">
+                    <span className="hidden sm:inline">Buka</span>
+                    <ChevronDown className="-rotate-90 w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                  </div>
                 </div>
-                <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{topic.title}</h3>
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {topic.content[0].text || topic.content[0].list?.[0]}
-                </p>
-                <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-primary">
-                  Pelajari Selengkapnya <ChevronDown className="-rotate-90 w-3 h-3" />
-                </div>
-              </motion.div>
+              </motion.button>
             ))}
           </div>
 
