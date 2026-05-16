@@ -1,4 +1,3 @@
-import Navbar from '@/components/Navbar';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';

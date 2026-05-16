@@ -10,7 +10,6 @@ import {
   AlertTriangle,
   Heart,
   X,
-  MessageSquareText,
   Users,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
