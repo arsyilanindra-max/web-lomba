@@ -1,2 +1,0 @@
-1. pada pages/Education.jsx tambahkan jenis jenis Bullying
-2. Ubah Layoutnya menjadi Card dan Detail Modal dimana cardnya adalah judul materi yang ingin dipelajari dan detailnya berisi materi lengkapnya.

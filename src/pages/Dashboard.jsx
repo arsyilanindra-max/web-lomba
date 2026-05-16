@@ -22,8 +22,8 @@ const sections = [
   {
     to: '/quiz',
     icon: Brain,
-    title: 'Kuis',
-    description: 'Uji pengetahuanmu dengan tantangan singkat yang menyenangkan.',
+    title: 'Tes Kesehatan Mental',
+    description: 'Kenali tanda-tandanya. Karena diam bukan selalu aman.',
   },
   {
     to: '/hotline',
