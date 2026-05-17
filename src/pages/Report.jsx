@@ -263,7 +263,7 @@ export default function Report() {
                     {errors.description && <p className="text-sm text-destructive">{errors.description}</p>}
 
                     <p className="text-xs text-muted-foreground">
-                      Catatan: aplikasi ini melakukan simulasi pengiriman ke Guru BK.
+                  
                     </p>
                   </section>
 
