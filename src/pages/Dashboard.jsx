@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar';
 import { motion } from 'framer-motion';
-import { BookOpen, MessageCircle, Brain, Phone, HeartHandshake } from 'lucide-react';
+import { BookOpen, MessageCircle, Brain, Phone, HeartHandshake, ShieldCheck } from 'lucide-react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useUsername } from '@/lib/useUsername';
@@ -17,13 +17,13 @@ const sections = [
     to: '/whatsapp',
     icon: MessageCircle,
     title: 'Direktori WhatsApp',
-    description: 'Akses cepat ke grup kelas dan komunitas kampus.',
+    description: 'Hubungi langsung guru BK untuk konsultasi secara rahasia.',
   },
   {
     to: '/quiz',
     icon: Brain,
     title: 'Tes Kesehatan Mental',
-    description: 'Kenali tanda-tandanya. Karena diam bukan selalu aman.',
+    description: 'Kenali tanda-tandanya, Karena diam bukan selalu aman.',
   },
   {
     to: '/hotline',
@@ -82,7 +82,7 @@ export default function Dashboard() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-5"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 mt-5"
         >
           <SectionCard
             to="/counseling"
@@ -91,6 +91,14 @@ export default function Dashboard() {
             description="Kirim pesan rahasia ke konselor SKOMDA, kami siap mendengarmu."
             accent
             index={4}
+          />
+          <SectionCard
+            to="/report"
+            icon={ShieldCheck}
+            title="Lapor Bullying secara Aman"
+            description="Laporkan tindakan perundungan rahasia langsung ke Guru BK sekolah."
+            accent
+            index={5}
           />
         </motion.div>
       </div>

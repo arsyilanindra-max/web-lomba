@@ -11,12 +11,12 @@ import {
   Heart,
   X,
   Users,
+  ArrowLeft,
+  ArrowRight,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 
 const JURNAL = [
-
   {
     judul: 'Bullying and Its Association with Autoimmune Disease in Adolescents',
     penulis: 'Danese, A., et al.',
@@ -54,14 +54,18 @@ const JURNAL = [
   },
 ];
 
-
 const topics = [
   {
     id: 'bullying',
     icon: Shield,
-    color: 'text-red-500',
-    bg: 'bg-red-50',
-    border: 'border-red-100',
+    cardBg: 'bg-rose-50/80 border border-rose-100 dark:bg-rose-950/20 dark:border-rose-900/30',
+    cardShadow: 'hover:shadow-rose-100/50 hover:border-rose-200',
+    iconBg: 'bg-rose-100/60 dark:bg-rose-900/40',
+    iconColor: 'text-rose-600 dark:text-rose-400',
+    solidBg: 'bg-rose-400 dark:bg-rose-600',
+    linkColor: 'text-rose-600 dark:text-rose-400 hover:text-rose-800 dark:hover:text-rose-300 transition-colors',
+    btnBg: 'bg-rose-100/60 hover:bg-rose-200/60 dark:bg-rose-900/30 dark:hover:bg-rose-900/50',
+    btnTextColor: 'text-rose-700 dark:text-rose-300',
     title: 'Apa Itu Perundungan (Bullying)?',
     content: [
       {
@@ -71,7 +75,7 @@ const topics = [
       {
         subtitle: 'Tanda-tanda Kamu Mengalami Perundungan',
         list: [
-          'Merasa takut atau tidak nyaman pergi ke sekolah',
+          'Merasa takut atau tidak nyaman pergi to sekolah',
           'Sering "hilang" barang atau uang tanpa alasan jelas',
           'Mengalami luka fisik yang tidak bisa dijelaskan',
           'Merasa tidak punya teman atau sering dikucilkan',
@@ -94,9 +98,14 @@ const topics = [
   {
     id: 'jenis-bullying',
     icon: Users,
-    color: 'text-fuchsia-500',
-    bg: 'bg-fuchsia-50',
-    border: 'border-fuchsia-100',
+    cardBg: 'bg-violet-50/80 border border-violet-100 dark:bg-violet-950/20 dark:border-violet-900/30',
+    cardShadow: 'hover:shadow-violet-100/50 hover:border-violet-200',
+    iconBg: 'bg-violet-100/60 dark:bg-violet-900/40',
+    iconColor: 'text-violet-600 dark:text-violet-400',
+    solidBg: 'bg-violet-400 dark:bg-violet-600',
+    linkColor: 'text-violet-600 dark:text-violet-400 hover:text-violet-800 dark:hover:text-violet-300 transition-colors',
+    btnBg: 'bg-violet-100/60 hover:bg-violet-200/60 dark:bg-violet-900/30 dark:hover:bg-violet-900/50',
+    btnTextColor: 'text-violet-700 dark:text-violet-300',
     title: 'Jenis-Jenis Bullying',
     content: [
       {
@@ -140,9 +149,14 @@ const topics = [
   {
     id: 'memendam',
     icon: Brain,
-    color: 'text-amber-500',
-    bg: 'bg-amber-50',
-    border: 'border-amber-100',
+    cardBg: 'bg-amber-50/80 border border-amber-100 dark:bg-amber-950/20 dark:border-amber-900/30',
+    cardShadow: 'hover:shadow-amber-100/50 hover:border-amber-200',
+    iconBg: 'bg-amber-100/60 dark:bg-amber-900/40',
+    iconColor: 'text-amber-600 dark:text-amber-400',
+    solidBg: 'bg-amber-400 dark:bg-amber-600',
+    linkColor: 'text-amber-600 dark:text-amber-400 hover:text-amber-800 dark:hover:text-amber-300 transition-colors',
+    btnBg: 'bg-amber-100/60 hover:bg-amber-200/60 dark:bg-amber-900/30 dark:hover:bg-amber-900/50',
+    btnTextColor: 'text-amber-700 dark:text-amber-300',
     title: 'Bahaya Memendam Perasaan Terlalu Lama',
     content: [
       {
@@ -152,7 +166,7 @@ const topics = [
       {
         subtitle: 'Dampak Jangka Panjang',
         list: [
-          'Gangguan tidur kronis dan kelelahan berkepanjangan',
+          'Gangguan tidur kronis and kelelahan berkepanjangan',
           'Penurunan daya tahan tubuh (sering sakit)',
           'Peningkatan risiko gangguan autoimun seperti lupus, rheumatoid arthritis, psoriasis',
           'Depresi dan gangguan kecemasan',
@@ -175,9 +189,14 @@ const topics = [
   {
     id: 'autoimun',
     icon: AlertTriangle,
-    color: 'text-orange-500',
-    bg: 'bg-orange-50',
-    border: 'border-orange-100',
+    cardBg: 'bg-orange-50/80 border border-orange-100 dark:bg-orange-950/20 dark:border-orange-900/30',
+    cardShadow: 'hover:shadow-orange-100/50 hover:border-orange-200',
+    iconBg: 'bg-orange-100/60 dark:bg-orange-900/40',
+    iconColor: 'text-orange-600 dark:text-orange-400',
+    solidBg: 'bg-orange-400 dark:bg-orange-600',
+    linkColor: 'text-orange-600 dark:text-orange-400 hover:text-orange-800 dark:hover:text-orange-300 transition-colors',
+    btnBg: 'bg-orange-100/60 hover:bg-orange-200/60 dark:bg-orange-900/30 dark:hover:bg-orange-900/50',
+    btnTextColor: 'text-orange-700 dark:text-orange-300',
     title: 'Stres Kronis & Penyakit Autoimun',
     content: [
       {
@@ -187,7 +206,7 @@ const topics = [
       {
         subtitle: 'Penyakit Autoimun yang Terkait Stres Kronis',
         list: [
-          'Lupus (SLE) menyerang sendi, kulit, dan organ dalam',
+          'Lupus (SLE) menyerang sendi, kulit, and organ dalam',
           'Rheumatoid Arthritis - peradangan sendi yang menyakitkan',
           'Psoriasis - gangguan kulit akibat respons imun berlebihan',
           'Penyakit Celiac - reaksi imun terhadap gluten',
@@ -211,9 +230,14 @@ const topics = [
   {
     id: 'pemulihan',
     icon: Heart,
-    color: 'text-green-500',
-    bg: 'bg-green-50',
-    border: 'border-green-100',
+    cardBg: 'bg-emerald-50/80 border border-emerald-100 dark:bg-emerald-950/20 dark:border-emerald-900/30',
+    cardShadow: 'hover:shadow-emerald-100/50 hover:border-emerald-200',
+    iconBg: 'bg-emerald-100/60 dark:bg-emerald-900/40',
+    iconColor: 'text-emerald-600 dark:text-emerald-400',
+    solidBg: 'bg-emerald-400 dark:bg-emerald-600',
+    linkColor: 'text-emerald-600 dark:text-emerald-400 hover:text-emerald-800 dark:hover:text-emerald-300 transition-colors',
+    btnBg: 'bg-emerald-100/60 hover:bg-emerald-200/60 dark:bg-emerald-900/30 dark:hover:bg-emerald-900/50',
+    btnTextColor: 'text-emerald-700 dark:text-emerald-300',
     title: 'Langkah Menuju Pemulihan & Kesehatan Mental',
     content: [
       {
@@ -254,7 +278,7 @@ export default function Education() {
       <div className="absolute top-0 left-0 w-96 h-96 rounded-full bg-accent/10 blur-3xl -translate-y-1/2 -translate-x-1/3" />
       <Navbar />
 
-      <div className="relative max-w-2xl mx-auto px-5 sm:px-8 pt-20 sm:pt-28 pb-16">
+      <div className="relative max-w-4xl mx-auto px-5 sm:px-8 pt-20 sm:pt-28 pb-16">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -275,11 +299,11 @@ export default function Education() {
           <h1 className="font-display text-4xl sm:text-5xl font-semibold tracking-tight mb-4">
             Edukasi
           </h1>
-          <p className="text-lg text-muted-foreground leading-relaxed mb-10">
+          <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
             Informasi penting tentang perundungan, dampak memendam perasaan, dan hubungannya dengan kesehatan fisik jangka panjang.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
             {topics.map((topic, i) => (
               <motion.button
                 key={topic.id}
@@ -288,29 +312,27 @@ export default function Education() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.06 }}
                 onClick={() => setSelectedTopic(topic)}
-                className={`text-left cursor-pointer rounded-2xl border ${topic.border} ${topic.bg} p-6 hover:shadow-lg transition-all group outline-none focus-visible:ring-2 focus-visible:ring-primary/30`}
+                className={`group relative flex flex-col justify-between text-left cursor-pointer rounded-3xl p-6 sm:p-8 hover:-translate-y-1.5 transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-primary/30 shadow-lg hover:shadow-2xl ${topic.cardBg} ${topic.cardShadow}`}
               >
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3">
-                    <div
-                      className={`w-12 h-12 rounded-xl flex items-center justify-center ${topic.color.replace('text-', 'bg-')}/10`}
-                    >
-                      <topic.icon className={`w-6 h-6 ${topic.color}`} />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-1 group-hover:text-primary transition-colors">
-                        {topic.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground line-clamp-2">
-                        {topic.content[0].text || topic.content[0].list?.[0]}
-                      </p>
-                    </div>
+                <div>
+                  <div
+                    className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110 ${topic.iconBg} ${topic.iconColor}`}
+                  >
+                    <topic.icon className="w-5 h-5" />
                   </div>
 
-                  <div className="mt-1 flex items-center gap-1 text-xs font-semibold text-primary">
-                    <span className="hidden sm:inline">Buka</span>
-                    <ChevronDown className="-rotate-90 w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-                  </div>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold tracking-tight mb-3 text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                    {topic.title}
+                  </h3>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3 mb-8">
+                    {topic.content[0].text || topic.content[0].list?.[0]}
+                  </p>
+                </div>
+
+                <div className={`flex items-center gap-1.5 text-xs font-bold mt-auto ${topic.linkColor}`}>
+                  <span>Pelajari Selengkapnya</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </motion.button>
             ))}
@@ -324,43 +346,61 @@ export default function Education() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onClick={() => setSelectedTopic(null)}
-                  className="absolute inset-0 bg-background/80 backdrop-blur-sm"
+                  className="absolute inset-0 bg-background/80 backdrop-blur-md"
                 />
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.95, y: 30 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                  className="relative w-full max-w-xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden max-h-[85vh] flex flex-col"
+                  exit={{ opacity: 0, scale: 0.95, y: 30 }}
+                  transition={{ type: 'spring', damping: 25, stiffness: 350 }}
+                  className="relative w-full max-w-2xl bg-card border border-border/80 shadow-2xl rounded-3xl overflow-hidden max-h-[85vh] flex flex-col"
                 >
-                  <div className="p-6 border-b border-border flex items-center justify-between sticky top-0 bg-card z-10">
-                    <div className="flex items-center gap-3">
-                      <selectedTopic.icon className={`w-5 h-5 ${selectedTopic.color}`} />
-                      <h3 className="font-bold text-xl">{selectedTopic.title}</h3>
+                  <div className="p-6 border-b border-border flex items-center justify-between sticky top-0 bg-gradient-to-r from-card to-background z-10">
+                    <div className="flex items-center gap-3.5">
+                      <div className={`w-1.5 h-6 rounded-full ${selectedTopic.solidBg}`} />
+                      <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${selectedTopic.iconBg} ${selectedTopic.iconColor}`}>
+                        <selectedTopic.icon className="w-4.5 h-4.5" />
+                      </div>
+                      <h3 className="font-display font-bold text-lg sm:text-xl text-foreground tracking-tight">{selectedTopic.title}</h3>
                     </div>
-                    <button onClick={() => setSelectedTopic(null)} className="p-2 hover:bg-secondary rounded-full transition-colors">
+                    <button onClick={() => setSelectedTopic(null)} className="p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-full transition-all duration-300">
                       <X className="w-5 h-5" />
                     </button>
                   </div>
-                  <div className="p-6 overflow-y-auto space-y-6">
+                  <div className="p-6 overflow-y-auto space-y-5 bg-secondary/5">
                     {selectedTopic.content.map((section, i) => (
-                      <div key={i}>
-                        <h4 className="font-semibold text-foreground mb-3">{section.subtitle}</h4>
+                      <motion.div
+                        key={i}
+                        initial={{ opacity: 0, y: 15 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.08, duration: 0.4 }}
+                        className={`p-5 sm:p-6 rounded-3xl border transition-all duration-300 hover:shadow-md ${selectedTopic.cardBg}`}
+                      >
+                        <h4 className={`font-display font-bold text-base sm:text-lg mb-3 flex items-center gap-2.5 ${selectedTopic.iconColor}`}>
+                          <span className={`w-2 h-2 rounded-full ${selectedTopic.solidBg}`} />
+                          {section.subtitle}
+                        </h4>
                         {section.text && <p className="text-sm text-muted-foreground leading-relaxed">{section.text}</p>}
                         {section.list && (
-                          <ul className="space-y-2 mt-3">
+                          <ul className="space-y-2.5 mt-3">
                             {section.list.map((item, j) => (
                               <li key={j} className="flex items-start gap-3 text-sm text-muted-foreground">
-                                <span className={`mt-1.5 w-1.5 h-1.5 rounded-full ${selectedTopic.color.replace('text-', 'bg-')} shrink-0`} />
-                                {item}
+                                <div className="w-5 h-5 rounded-md flex items-center justify-center bg-white dark:bg-card border border-border/60 shrink-0 mt-0.5 shadow-sm">
+                                  <span className={`w-1.5 h-1.5 rounded-full ${selectedTopic.solidBg}`} />
+                                </div>
+                                <span className="leading-relaxed">{item}</span>
                               </li>
                             ))}
                           </ul>
                         )}
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
-                  <div className="p-6 border-t border-border bg-secondary/30">
-                    <button onClick={() => setSelectedTopic(null)} className="w-full py-3 bg-primary text-primary-foreground rounded-xl font-bold hover:opacity-90 transition-opacity">
+                  <div className="p-6 border-t border-border bg-gradient-to-b from-card/50 to-secondary/30 flex items-center justify-end gap-3">
+                    <button onClick={() => setSelectedTopic(null)} className="px-5 py-3 hover:bg-secondary text-muted-foreground font-semibold rounded-2xl transition-all duration-300">
+                      Batal
+                    </button>
+                    <button onClick={() => setSelectedTopic(null)} className={`px-8 py-3.5 font-bold rounded-2xl active:scale-[0.98] transition-all shadow-md ${selectedTopic.btnBg} ${selectedTopic.btnTextColor}`}>
                       Tutup Materi
                     </button>
                   </div>
@@ -369,10 +409,10 @@ export default function Education() {
             )}
           </AnimatePresence>
 
-          <div className="bg-card border border-border rounded-2xl overflow-hidden">
+          <div className="bg-card border border-border rounded-3xl overflow-hidden shadow-sm">
             <button
               onClick={() => setShowJurnal(!showJurnal)}
-              className="w-full flex items-center justify-between gap-4 p-5 text-left"
+              className="w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-secondary/20 transition-colors"
             >
               <div className="flex items-center gap-3">
                 <BookOpen className="w-5 h-5 text-primary shrink-0" />
@@ -391,21 +431,21 @@ export default function Education() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <div className="px-5 pb-5 space-y-4">
+                  <div className="px-6 pb-6 space-y-4">
                     <p className="text-xs text-muted-foreground">
                       Informasi di halaman ini didukung oleh penelitian dan jurnal ilmiah berikut:
                     </p>
                     {JURNAL.map((j, i) => (
-                      <div key={i} className="border-l-2 border-primary/20 pl-4">
-                        <p className="font-medium text-sm text-foreground">{j.judul}</p>
-                        <p className="text-xs text-muted-foreground mt-0.5">
+                      <div key={i} className="border-l-2 border-primary/20 pl-4 hover:border-primary transition-colors py-0.5">
+                        <p className="font-medium text-sm text-foreground leading-snug">{j.judul}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
                           {j.penulis} ({j.tahun}) — <em>{j.jurnal}</em>
                         </p>
                         <a
                           href={j.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1"
+                          className="inline-flex items-center gap-1 text-xs text-primary hover:underline mt-1.5 font-medium"
                         >
                           Buka jurnal <ExternalLink className="w-3 h-3" />
                         </a>

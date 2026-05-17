@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import Navbar from '@/components/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Image as ImageIcon, ShieldCheck, FileText, UserCircle2, Send } from 'lucide-react';
+import { ArrowLeft, Image as ImageIcon, ShieldCheck, FileText, UserCircle2, Send, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 function formatBytes(bytes) {
@@ -58,8 +58,8 @@ export default function Report() {
   const validate = () => {
     const next = {};
     if (!formData.description.trim()) next.description = 'Keterangan singkat wajib diisi.';
-    if (!formData.isAnonymous && !formData.bullyIdentity.trim()) {
-      next.bullyIdentity = 'Identitas pelaku wajib diisi saat tidak anonim.';
+    if (!formData.bullyIdentity.trim()) {
+      next.bullyIdentity = 'Identitas pelaku wajib diisi.';
     }
     return next;
   };
@@ -145,7 +145,7 @@ export default function Report() {
                           onChange={() => setField('isAnonymous', true)}
                           className="accent-primary"
                         />
-                        <span className="font-semibold">Lapor Anonim</span>
+                        <span className="font-semibold">Lapor Anonim (Rahasiakan Nama Saya)</span>
                       </label>
                       <label className="flex items-center gap-3 bg-secondary/30 border border-border rounded-2xl px-4 py-3 cursor-pointer hover:bg-secondary/50 transition-colors">
                         <input
@@ -155,7 +155,7 @@ export default function Report() {
                           onChange={() => setField('isAnonymous', false)}
                           className="accent-primary"
                         />
-                        <span className="font-semibold">Tampilkan Identitas Pelaku</span>
+                        <span className="font-semibold">Kirim dengan Nama Saya</span>
                       </label>
                     </div>
                   </section>
@@ -163,17 +163,16 @@ export default function Report() {
                   <section className="space-y-3">
                     <div className="flex items-center gap-3">
                       <UserCircle2 className="w-5 h-5 text-primary" />
-                      <h3 className="font-bold text-base">Identitas yang Membully</h3>
+                      <h3 className="font-bold text-base">Identitas Pelaku (Yang Membully)</h3>
                     </div>
 
-                    <div className={`space-y-2 ${formData.isAnonymous ? 'opacity-60' : 'opacity-100'}`}>
+                    <div className="space-y-2">
                       <input
                         type="text"
                         value={formData.bullyIdentity}
                         onChange={(e) => setField('bullyIdentity', e.target.value)}
-                        placeholder={formData.isAnonymous ? 'Pilih “Tampilkan Identitas Pelaku” untuk mengisi.' : 'Nama pelaku, kelas, atau ciri fisik'}
-                        disabled={formData.isAnonymous}
-                        className={`w-full px-4 py-3 rounded-2xl border outline-none transition bg-background ${formData.isAnonymous ? 'cursor-not-allowed' : 'focus:ring-2 focus:ring-primary/25 focus:border-primary/50'}`}
+                        placeholder="Nama pelaku, kelas, atau ciri fisik"
+                        className="w-full px-4 py-3 rounded-2xl border border-border outline-none transition bg-background focus:ring-2 focus:ring-primary/25 focus:border-primary/50"
                       />
                       {errors.bullyIdentity && <p className="text-sm text-destructive">{errors.bullyIdentity}</p>}
                     </div>
@@ -318,7 +317,7 @@ export default function Report() {
                   <ul className="mt-2 space-y-2 text-sm text-muted-foreground list-disc pl-5">
                     <li>Katakan waktu dan tempat kejadian.</li>
                     <li>Hindari menuliskan hal yang belum pasti.</li>
-                    <li>Jika anonim, jangan isi identitas pelaku.</li>
+                    <li>Sebutkan nama lengkap pelaku atau ciri fisiknya agar mudah diidentifikasi.</li>
                   </ul>
                 </div>
               </div>

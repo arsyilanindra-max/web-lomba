@@ -14,6 +14,7 @@ import WhatsAppDirectory from '@/pages/WhatsAppDirectory';
 import Quiz from '@/pages/Quiz';
 import Hotline from '@/pages/Hotline';
 import Counseling from '@/pages/Counseling';
+import Report from '@/pages/Report';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -53,6 +54,7 @@ const AuthenticatedApp = () => {
         <Route path="/quiz"       element={<Quiz />} />
         <Route path="/hotline"    element={<Hotline />} />
         <Route path="/counseling" element={<Counseling />} />
+        <Route path="/report"     element={<Report />} />
       </Route>
 
       <Route path="*" element={<PageNotFound />} />

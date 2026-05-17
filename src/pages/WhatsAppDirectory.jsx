@@ -1,23 +1,10 @@
-import { MessageCircle, ExternalLink, Users, User } from 'lucide-react';
+import { MessageCircle, ExternalLink, User, ArrowLeft } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
 import Greeting from '@/components/Greeting';
 
-const LINK_GURU_BK = 'https://wa.me/6281234567890'; // GANTI NOMOR
-
-// PESAN OTOMATIS yang akan terisi saat user membuka WA guru BK yup
+const LINK_GURU_BK = 'https://wa.me/6281234567890';
 const PESAN_OTOMATIS_BK = 'Halo Pak/Bu, saya ingin berkonsultasi mengenai kondisi saya.';
-
-// Biar bisa dapatkan link grup WA: buka grup → Info Grup → Undang via tautan
-const GRUP_LIST = [
-  { label: 'Kelas XI IF-43-01', link: 'https://chat.whatsapp.com/invite/contoh1', type: 'class' },
-  { label: 'Kelas XI IF-43-02', link: 'https://chat.whatsapp.com/invite/contoh2', type: 'class' },
-  { label: 'Kelas XI IF-43-03', link: 'https://chat.whatsapp.com/invite/contoh3', type: 'class' },
-  { label: 'Kelas XII IF-44-01', link: 'https://chat.whatsapp.com/invite/contoh4', type: 'class' },
-  { label: 'OSIS 2024/2025', link: 'https://chat.whatsapp.com/invite/contoh5', type: 'community' },
-  { label: 'Komunitas Anti-Bullying SKOMDA', link: 'https://chat.whatsapp.com/invite/contoh6', type: 'community' },
-];
 
 const buildWaLink = (number, pesan) =>
   `${number}?text=${encodeURIComponent(pesan)}`;
@@ -50,10 +37,9 @@ export default function WhatsAppDirectory() {
             Direktori WhatsApp
           </h1>
           <p className="text-lg text-muted-foreground leading-relaxed mb-10">
-            Akses cepat ke guru BK dan grup kelas komunitasmu.
+            Akses cepat ke guru BK bimbingan konseling.
           </p>
 
-          {/* Kartu Guru BK */}
           <div className="mb-6">
             <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
               Konsultasi Langsung
@@ -77,41 +63,6 @@ export default function WhatsAppDirectory() {
               </div>
               <ExternalLink className="w-4 h-4 opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
             </a>
-          </div>
-
-          {/* Daftar Grup */}
-          <div>
-            <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3">
-              Grup Kelas & Komunitas
-            </p>
-            {GRUP_LIST.length === 0 ? (
-              <div className="rounded-2xl border border-dashed border-border bg-card/50 p-10 text-center text-muted-foreground">
-                Link grup segera hadir — administrator akan memperbarui daftar ini.
-              </div>
-            ) : (
-              <div className="space-y-3">
-                {GRUP_LIST.map((item, i) => (
-                  <motion.a
-                    key={i}
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.06 }}
-                    className="group flex items-center justify-between gap-4 bg-card border border-border rounded-2xl p-4 hover:border-primary/40 hover:shadow-md transition-all"
-                  >
-                    <div className="flex items-center gap-3">
-                      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-secondary">
-                        <Users className="w-4 h-4 text-primary" />
-                      </div>
-                      <span className="font-medium text-foreground">{item.label}</span>
-                    </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors shrink-0" />
-                  </motion.a>
-                ))}
-              </div>
-            )}
           </div>
         </motion.div>
       </div>
